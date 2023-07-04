@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+
+	<head>
+    	<link rel="stylesheet" type="text/css" th:href="@{/css/table.css}"/>
+    	<style>
+    		input{
+    			width: 98%;
+    			height: 23px;
+    		}
+    		td:nth-child(3n+1):not(:last-child){
+    			color: white;
+    			font-weight: 700;
+    			background-color: cornflowerblue;
+    		}
+    		select{
+    			width: 99%;
+    			text-align: center;
+    			height: 23px;
+    		}
+    		#removeGoodsBtn, #resetBtn {
+    			width: 49%;
+    			height: 25px;
+    		}
+    	</style>
+    </head>
+    
+    <th:block layout:fragment="customJs">
+    	<script th:src="@{/js/jquery-3.7.0.js}"></script>
+    	<script type="text/javascript" th:inline="javascript">
+    	// cdata xml, html script : <, { 태그 관련해서 예약어로 지정되어 있는데 <![CDATA['문자열']]> -> cdata[] '대괄호 안은 문자열입니다'를 지정하는데 사용   	
+    	/*<![CDATA[*/ 
+    		
+    		
+    		let msg = [[${msg}]];
+    		if(msg != 'null') alert(msg);
+    		/*]]>*/
+    		
+    		/* $('#removeGoodsBtn').click(function(e){
+    			e.preventDefault();
+    			let memberId = [[${memberId}]];
+    			$('removeMemberForm').submit();
+    		}); */
+    		
+    		
+    	</script>
+    		
+    		
+    		
+    </th:block>
+
+	<th:block layout:fragment="customContents">
+		<form id="removeGoodsForm" th:action="@{/goods/removeGoods}" method="post">
+			<table>
+				<tbody>			
+					<tr>
+						<td>
+							<label>상품 정보</label>
+						</td>
+						<td>
+							<input type="hidden" name="goodsCode" th:value ="${goodsCode}">
+							<input type="hidden" name="goodsName" th:value ="${goodsName}">
+							<label th:text="|상품코드 : ${goodsCode}, 상품명:${goodsName}|"></label>
+						</td>
+					</tr> 
+					
+					<tr>
+						<td>
+							<label for="memberPw">판매자 비밀번호</label>
+						</td>
+						<td colspan="2">
+							<input type="hidden" name="sellerId" th:value ="${sellerId}">
+							<input type="text" id="memberPw" name="memberPw" placeholder="회원의 비밀번호를 입력해주세요."  />
+						</td>
+					<tr>
+						<td colspan="2">
+							<button type="button" id="removeGoodsBtn">상품 정보 삭제 완료</button>
+							<button type="reset" id="resetBtn">입력취소</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</th:block>
+	
+	
+	
+	
+	
+</html>

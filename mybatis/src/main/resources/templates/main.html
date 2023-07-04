@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+
+  <th:block layout:fragment="customContents">
+    <!--/* 인라인스타일로 작성하는 방법 [[${타임리프 구문}]] 타임리프 주석*/-->
+    <!--/*<h1>[[${contents}]]</h1>*/-->
+
+    <!--/* 태그의 속성으로 작성하는 방법 th:속성명="${타임리프 구문}" 타임리프 주석*/-->
+    <h1 th:text="${contents}"></h1>
+  </th:block>
+</html>
