@@ -70,11 +70,13 @@
         	<artifactId>springboot</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
+        
         <dependency>
         	<groupId>ksmart</groupId>
         	<artifactId>thymeleaf</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
+        
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
